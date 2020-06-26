@@ -1,0 +1,88 @@
+package com.example.gym;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    String []quotes={" “The last three or four reps is what makes the muscle grow. This area of pain divides a champion from someone who is not a champion.”",
+            "“Success usually comes to those who are too busy to be looking for it.”",
+            "“All progress takes place outside the comfort zone.”",
+            "“If you think lifting is dangerous, try being weak. Being weak is dangerous.”",
+            "“The only place where success comes before work is in the dictionary.”"};
+    int count=0;//for quotes
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        //code for quotes start
+        final TextView textView=(TextView)findViewById(R.id.quotes);
+            Thread t =new Thread(){
+                @Override
+                public void run()
+                {
+                    while(!isInterrupted()){
+                        try {
+                            Thread.sleep(3000);
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    count++;
+                                    if(count==4)
+                                    {
+                                        count=0;
+                                    }
+                                    textView.setText(quotes[count]);
+                                }
+                            }) ;
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }
+
+            };
+t.start();
+//code for quotes end
+            }
+
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}

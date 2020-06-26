@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <TextView
+
+        android:id="@+id/description"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:background="#D3D3D3"
+        android:shape="rectangle"
+        android:text="Hello fitness freaks,
+
+        Welcome to ultimate fitness trainer.
+        Please select your level"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/quotes"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/quotes"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/quotes"
+        android:shape="rectangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="#C0C0C0"
+        android:text="“Whether you think you can, or you think you can’t, you’re right.”"
+        android:textIsSelectable="false"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/it"
+        android:layout_width="148dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="38dp"
+        android:onClick="Intermediate"
+        android:text="Intermediate"
+        app:layout_constraintEnd_toEndOf="@+id/quotes"
+        app:layout_constraintStart_toStartOf="@+id/quotes"
+        app:layout_constraintTop_toBottomOf="@+id/bg" />
+
+    <Button
+        android:id="@+id/bg"
+        android:layout_width="148dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="384dp"
+        android:onClick="Beginner"
+        android:text="Beginner"
+        app:layout_constraintEnd_toEndOf="@+id/quotes"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/quotes"
+        app:layout_constraintTop_toBottomOf="@+id/quotes" />
+
+    <Button
+        android:id="@+id/ad"
+        android:layout_width="148dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="38dp"
+        android:onClick="Advance"
+        android:text="Advance"
+        app:layout_constraintEnd_toEndOf="@+id/quotes"
+        app:layout_constraintStart_toStartOf="@+id/quotes"
+        app:layout_constraintTop_toBottomOf="@+id/it" />
+
+</android.support.constraint.ConstraintLayout>
